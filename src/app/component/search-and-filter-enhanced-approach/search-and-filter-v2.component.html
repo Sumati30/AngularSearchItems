@@ -1,0 +1,42 @@
+<div class="container mt-4">
+    <div class="row mb-3 pl-3">
+        <h4>Library</h4>
+    </div>
+    <div class="row">
+        <!-- Categories -->
+        <div class="col-md-3">
+            <div class="mb-2">
+                <label class="fw-bold" for="searchText">
+                    <h5>Categories</h5>
+                </label>
+                <input type="text" name="searchText" class="form-control mb-3" placeholder="Search applets"
+                    [(ngModel)]="searchText" (keyup)="search(searchText)" />
+            </div>
+
+            <cdk-virtual-scroll-viewport itemSize="40" class="viewport">
+                <button class="btn mb-2" *cdkVirtualFor="let category of categoryAndCount" (click)="selectCategory(category.name)"
+                    [ngClass]="{
+                      'btn-primary': category.name === selectedCategoryValue,
+                      'btn-outline-primary': category.name !== selectedCategoryValue,
+                      'active': category.name === selectedCategoryValue
+                    }">
+                    {{ category.name }}
+                    <span class="badge bg-light text-dark rounded-circle">{{ category.count }}</span>
+                </button>
+            </cdk-virtual-scroll-viewport>
+        </div>
+
+        <!-- Applets -->
+        <div class="col-md-9">
+            <div class="mb-3">
+                <h5>Applets</h5>
+            </div>
+            <cdk-virtual-scroll-viewport itemSize="50" class="viewport2">
+                <div *cdkVirtualFor="let applet of filteredApplets; trackBy: trackByName" class="card mb-2">
+                    {{ applet.name }}
+                </div>
+            </cdk-virtual-scroll-viewport>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,32 @@
+.card {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  transition: background-color 0.2s ease;
+  padding: 10px;
+    height: 45px;
+  &:hover {
+    background-color: #e9ecef;
+  }
+}
+
+// .viewport {
+//   height: 100vh; /* visible scroll area height */
+//   width: 100%;
+//   border: 1px solid #ccc;
+//   overflow: auto;
+// }
+
+.viewport {
+  height: calc(100vh - 190px); 
+  overflow: auto;
+}
+
+.btn{
+  width: 100%;
+  
+}
+
+.viewport2 {
+  height: calc(100vh - 155px); 
+  overflow: auto;
+}
