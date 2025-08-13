@@ -1,0 +1,20 @@
+<div class="container mt-4">
+    <h2>Search Users</h2>
+
+<input
+  type="text"
+  placeholder="Search by name..."
+  (input)="search($event.target.value)"
+/>
+
+<ul>
+  <li *ngFor="let user of users$ | async">
+    {{ user.name }} - {{ user.email }}
+  </li>
+</ul>
+
+<div *ngIf="(users$ | async)?.length === 0">
+  No users found.
+</div>
+
+</div>
